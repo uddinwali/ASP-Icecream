@@ -1,0 +1,279 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TailSpyWorksAdvanced.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <script>
+        window.onload = function () {
+            currentSlide(1);
+        }
+        
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+</script>
+    <style>
+    body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding:16px;
+  margin-top: -50px;
+  margin-left:-50%;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+
+
+</head>
+<body>
+   <form runat="server" id="MyForm">
+ <div id="outer">
+	<div id="header">
+		<div style="float: left;">
+			<h1><a href="#">ICE CREAM PORLOUR </a></h1>
+			<h2>The Name of Entertaintment </h2>
+		</div>
+		<div style="float: right; vertical-align:middle;">
+		<br /><br />
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr style="vertical-align:middle;" >
+					<td align="center" style="width: 65px">
+                    <a id="A1" href="~/Account/Login.aspx" runat="server" class="SiteLinkBold">
+                    <img id="Img1" src="~/Styles/Images/sign_in.gif" alt="" runat="server" /><br />
+                        <asp:LoginView ID="MenuLoginView" runat="server">
+                        <AnonymousTemplate>
+                            Sign In
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Log Out
+                        </LoggedInTemplate>
+                        </asp:LoginView>
+                    </a>
+                    </td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="subheader">
+			<a id="A2" href="~/Default.aspx" runat="server" title="">Home</a>
+			<a id="A3" href="~/About.aspx" runat="server" title="">About Us</a>
+	</div>	
+     <!---- Slider=---->
+
+     
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="slider%20images/img_5terre_wide.jpg" style="width:100%" /> 
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="slider%20images/img_lights_wide.jpg"  style="width:100%" />
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="slider%20images/image.jpg"  style="width:100%" />
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="slider%20images/ice_cream_dessert_oreo_frappuccino_waffles_107278_3840x2160.jpg" style="width:100%" />
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="slider%20images/ice.jpg" style="width:100%" />
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="slider%20images/ice_cream_cone_lavender_dessert_101521_3840x2160.jpg" style="width:100%" />
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="slider%20images/img_5terre_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="slider%20images/img_lights_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="slider%20images/image.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="slider%20images/ice_cream_dessert_oreo_frappuccino_waffles_107278_3840x2160.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="slider%20images/ice.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="slider%20images/ice_cream_cone_lavender_dessert_101521_3840x2160.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+    </div>
+  </div>
+</div>
+
+     <!-----slider---->
+	<div id="content">
+ 		<div id="rightColumn">
+		</div>
+ 		<div id="mainContent">
+			<div id="centerColumn">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+			</div>
+		</div>
+ 		<div id="leftColumn">
+             	<h3>Flavours</h3>
+            <asp:ListView ID="ListView_ProductsMenu" runat="server" 
+                DataKeyNames="CategoryID">
+                <EmptyDataTemplate>No Menu Items.</EmptyDataTemplate>
+                <ItemSeparatorTemplate></ItemSeparatorTemplate>
+                <ItemTemplate>
+                    <li>
+                       <a href='<%# VirtualPathUtility.ToAbsolute("~/ProductsList.aspx?CategoryId=" + Eval("CategoryID")) %>'><%# Eval("CategoryName") %></a>
+                    </li>
+                </ItemTemplate>               
+
+                <LayoutTemplate>
+                    <ul ID="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
+                        <li runat="server" id="itemPlaceholder" />
+                    </ul>
+                    <div style="text-align: left;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;"></div>
+                </LayoutTemplate>
+            </asp:ListView>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="footer"><p>Copyright &copy; Designed by Syed Wali Uddin</p></div>
+</div>
+</form>
+
+</body>
+</html>
